@@ -32,3 +32,6 @@ def timeView(request):
     if request.method == "GET":
         now = datetime.now().strftime("%H:%M:%S")    #type:ignore
         return HttpResponse(now)
+
+from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
+

@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Library.kg{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4;">
+
+    {% include 'components/header.html' %}
+
+    <main style="min-height: 80vh; padding: 20px;">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include 'components/footer.html' %}
+
+</body>
+</html>

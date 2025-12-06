@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Список книг{% endblock %}
+
+{% block content %}
+    <h1>Наши книги</h1>
+    <div class="container">
+        {% for book in books %}
+            <div class="book-card">
+                <h3>{{ book.title }}</h3>
+                 <p>{{ book.author }}</p>
+                 <a href="/books/detail/{{ book.id }}/">Подробнее</a>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}

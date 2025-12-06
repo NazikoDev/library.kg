@@ -9,12 +9,12 @@ class Category(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = "катигория"
+        verbose_name_plural = "катигория"
 
 # Модель Товара
 class Product(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', verbose_name="Категория")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', verbose_name="Катигория товара")
 
     title = models.CharField(max_length=100, verbose_name="Что за  товара")
     description = models.TextField(verbose_name="Описание")
@@ -23,7 +23,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.title
+        return self.title 
 
     class Meta:
         verbose_name = "Товар"

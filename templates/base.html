@@ -1,23 +1,32 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Library{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
 
-{% block title %}
-    {{ book.title }}
-{% endblock %}
+<header>
+    <h1>Библиотека</h1>
+    <nav>
+        <a href="{% url 'books' %}">Книги</a> |
+        <a href="{% url 'writers' %}">Писатели</a> |
+        <a href="{% url 'quotes' %}">Цитаты</a> |
+        <a href="{% url 'time' %}">Время</a>
+    </nav>
+    <hr>
+</header>
 
-{% block content %}
-    <div class="book-detail">
-        <h1>{{ book.title }}</h1>
+<main>
+    {% block content %}{% endblock %}
+</main>
 
-        {% if book.image %}
-            <img src="{{ book.image.url }}" alt="{{ book.title }}" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px;">
-        {% endif %}
+<hr>
+<footer>
+    <p>© 2025 GEEKS. Все права защищены.</p>
+</footer>
 
-        <p><strong>Автор:</strong> {{ book.author }}</p>
-        <p><strong>Описание:</strong> {{ book.description }}</p>
-        <p><strong>Цена:</strong> {{ book.price }} сом</p>
-        <p><em>Добавлено: {{ book.created_at }}</em></p>
-
-        <br>
-        <a href="/books/all/" class="btn">🔙 Назад к списку</a>
-    </div>
-{% endblock %}
+</body>
+</html>
